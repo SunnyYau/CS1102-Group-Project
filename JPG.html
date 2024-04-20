@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JPG</title>
+  <style>
+.navbar {
+
+  display: flex;
+  align-items: center;
+}
+.menu{
+  width: 40px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+nav{
+  flex: 1;
+  text-align:left;
+  background-color:rgb(62, 57, 98,0.7) ;
+}
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 30px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+}
+    body {
+      display: grid;
+      font-family: Arial;
+      background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('./cloud.gif'); 
+      background-size: cover;
+      background-position: center;
+      color: white;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-gap: 20px;
+      height: 100vh;
+    }
+    .image-right {
+      float: right;
+      margin: 0 0 10px 10px;
+    }
+    
+
+    .header {
+      grid-column: 1 / span 2;
+      text-align: center;
+      background-color:rgba(59, 103, 196, 0.7) ;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+     
+     }
+
+    .header:hover {
+      background-color: #002b80;
+    }
+
+    .sidebar,
+    .content,
+    .sidebar-small,
+    .content-small {
+      background-color: rgb(59, 103, 196,0.7);
+      padding: 70px;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar:hover,
+    .content:hover,
+    .sidebar-small:hover,
+    .content-small:hover {
+      background-color: #002b80;
+    }
+
+    .active {
+      background-color: rgb(59, 103, 196,0.8);
+    }
+    footer{
+      color:black;
+      text-align: center;
+      background-color: rgba(246, 211, 186, 0.7);
+      height: auto;
+      position:fixed;
+      margin-top: 50%;
+      overflow: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100px;
+    }
+
+  </style>
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      const sidebarItems = document.querySelectorAll(".sidebar li");
+      const contentItems = document.querySelectorAll(".content li");
+      const sidebarSmallItems = document.querySelectorAll(".sidebar-small li");
+      const contentsmall = document.querySelectorAll(".content-small li");
+
+      sidebarItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+          sidebarItems.forEach(function(item) {
+            item.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+
+      contentItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+          contentItems.forEach(function(item) {
+            item.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+
+      sidebarSmallItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+          sidebarSmallItems.forEach(function(item) {
+            item.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <img src="./menu.png" class="menu" />
+    <nav>
+      <ul>
+        <li><a href="./index.html">Homepage</a></li>
+        <li><a href="">JPG</a></li>
+        <li><a href="./CS1102 2.html">PNG</a></li>
+        <li><a href="./ImgComAlg_GIF.html">GIF</a></li>
+        <li><a href="./TIFF.html">TIFF</a></li>
+        <li><a href="./Comparison_ICA.html">Comparison</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+  <div class="header">
+    <h1>JPG</h1>
+    
+  </div>
+  <div class="sidebar">
+    <h2>What is JPG file format and What compression algorithms used:</h2>
+    <p>   Joint Photographic Expert Groups,known as JPG,is a widely used image file format for storing compressed digital images. It is a lossy compression method specifically designed for photographic images.
+        <br>
+         <p></p>
+         JPEG utilizes a lossy compression method that relies on the discrete cosine transform (DCT). By applying the DCT, each frame or field of the video source is transformed from the spatial domain (2D representation) to the frequency domain (also known as the transform domain). <br>
+         <p></p>
+         The compression algorithm used in JPEG is a combination of techniques, including the discrete cosine transform (DCT), quantization, and Huffman encoding. 
+  </div>
+  <div class="content">
+    <h2>How does JPG compression algorithm works:</h2>
+    <p>1.JPG compression reduces the size of an image file by removing unnecessary or less noticeable information. It does this by taking advantage of how our eyes perceive visual information.<br>
+         <p></p>
+         2.Small blocks of pixels in the image are analyzed and transformed using a mathematical technique called the Discrete Cosine Transform (DCT). This process converts the pixel values into a frequency representation, identifying the different frequency components present in each block.
+         <p></p>
+         3.After the transformation, the frequency components are quantized, which means reducing their precision. This step involves discarding or approximating less important frequency components, introducing some loss of information. It is this lossy compression that allows for significant file size reduction.
+         <p></p>
+         4.The quantized frequency components are encoded using a coding scheme that assigns shorter codes to more common values. This further reduces the file size by efficiently representing the compressed data.
+         <p></p>
+         5.The quantized DCT coefficients are further compressed using Huffman encoding. Huffman encoding replaces frequently occurring patterns of coefficients with shorter binary codes and less frequent patterns with longer codes. This step exploits the statistical properties of the coefficients to achieve additional compression.
+         <p></p>
+         6.The compressed image data, consisting of quantized DCT coefficients and Huffman-encoded data, is stored in a file format such as JPEG.
+        </p>
+  </div>
+  <div class="sidebar-small">
+    <h2>Pros of JPG compression</h2>
+    <ul>
+      <li>Smaller File Sizes:<br>
+        JPG allows you to compress images, reducing their file sizes. This is useful for storing and sharing images as it saves storage space and makes it easier to transfer them online.</li>
+      <li>High Compatibility:<br>
+        JPG files can be opened and viewed on almost all devices, including computers, smartphones, and tablets. You don't need any special software to view JPG images, making them widely accessible.</li>
+      <li>Suitable for Photographs: <br>
+        If you're working with photographs, JPG is a good choice. It can efficiently compress complex images with smooth color gradients while preserving the overall visual quality.</li>
+        
+        
+    </ul>
+  </div>
+  <div class="content-small">
+    <h2>Cons of JPG compression</h2>
+    <ul>
+      <li>
+        Loss of Image Quality:<br>
+       It was patented in the 80s, so  licensing fees are required for many years. It may increase the extra cost to the application of LZW. </li>
+      <li>
+        Limited Color Range: </br>
+        JPG supports a limited range of colors, which can cause visible banding or color gradients in images with smooth color transitions. This means that some subtle color variation.</li>
+      <li>
+        Not Suitable for Preserving Every Detail:<br>
+        If you need to preserve every detail in an image without any loss of quality, JPG is not the best choice. Other formats like PNG or TIFF are better suited for scenarios where preserving all image data is important.</li>
+    </ul>
+  </div>
+</body>
+<footer>
+  MEMBERS LIST<br>
+  <li>Yau Sheung Ching (58539352)</li>
+  <li>Zhang Xi Tong (57845879)</li>
+  <li>Chan Yuk Kwan (56212704)</li>
+  <li>Li Wang Cheong (57149051)</li>
+</footer>
+
+</html>

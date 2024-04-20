@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Compression Algorithms</title>
+  <style>
+    body {
+      display: grid;
+      font-family: Arial;
+      background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('./cloud.gif'); 
+      background-size: cover;
+      background-position: center;
+      color: white;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto auto;
+      grid-gap: 20px;
+      padding: 20px;
+    }
+
+    .header {
+      grid-column: 1 / span 2;
+      text-align: center;
+      background-color: rgba(59, 103, 196, 0.7);
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .header:hover {
+      background-color: #002b80;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+.navbar {
+
+display: flex;
+align-items: center;
+}
+.menu{
+width: 40px;
+cursor: pointer;
+margin-left: 10px;
+}
+nav{
+flex: 1;
+text-align:left;
+background-color:rgb(62, 57, 98,0.7) ;
+}
+nav ul li {
+list-style: none;
+display: inline-block;
+margin-left: 30px;
+}
+nav ul li a {
+text-decoration: none;
+color: #fff;
+font-size: 17px;
+font-weight: bold;
+}
+
+    .button {
+      background-color: #0057E1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #002b80;
+    }
+
+    .table-container {
+      display: none;
+      text-align: center; /* Center the table */
+    }
+
+    .table-container table {
+      width: 90%; /* Adjust the width */
+      margin: 0 auto; /* Center the table */
+      background-color: #0057E1; /* Match the header color */
+      border-collapse: collapse;
+    }
+
+    .table-container table td,
+    .table-container table th {
+      border: 1px solid #ffffff;
+      padding: 10px; /* Increase padding */
+      text-align: left;
+    }
+
+    .table-container table tbody tr:nth-child(odd) {
+      background-color: #1338be; /* Match odd row color */
+    }
+
+    .table-container table tbody tr:nth-child(even) {
+      background-color: #0057E1; /* Match even row color */
+    }
+
+    .conclusion {
+      grid-column: 1 / span 2;
+      background-color: rgba(59, 103, 196, 0.7);
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .conclusion:hover {
+      background-color: #002b80;
+    }
+    footer{
+      color:black;
+      text-align: center;
+      background-color: rgba(246, 211, 186, 0.7);
+      height: auto;
+      position:fixed;
+      margin-top: 50%;
+      overflow: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100px;
+    }
+
+  </style>
+  <script>
+    function toggleTable() {
+      var tableContainer = document.querySelector(".table-container");
+      tableContainer.style.display = (tableContainer.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <img src="./menu.png" class="menu" />
+    <nav>
+      <ul>
+        <li><a href="./index.html">Homepage</a></li>
+        <li><a href="./JPG.html">JPG</a></li>
+        <li><a href="./CS1102 2.html">PNG</a></li>
+        <li><a href="./ImgComAlg_GIF.html">GIF</a></li>
+        <li><a href="./TIFF.html">TIFF</a></li>
+        <li><a href="">Comparison</a></li>
+      </ul>
+    </nav>
+  
+  </div>
+  <div class="header">
+    <h1>Image Compression Algorithms</h1>
+    <p>Based on the four file formats, we found that those formats are produced using these common image compression algorithms: DCT, LZW, Deflate (Combined by using LZ77 and Huffman coding)</p>
+    <div class="button-container">
+      <button class="button" onclick="toggleTable()">Let's compare different Image Compression Algorithms!</button>
+    </div>
+  </div>
+
+  <div class="table-container" id="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Algorithm</th>
+          <th>Well-Suited for</th>
+          <th>Lossyness</th>
+          <th>Compression Ratio</th>
+          <th>Compression Speed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DCT</td>
+          <td>Continuous-tone photographic images with smooth color transitions and complex spatial information</td>
+          <td>Lossy compression, Removes high-frequency information</td>
+          <td>High compression ratios achievable</td>
+          <td>Slow when compressing larger size files</td>
+        </tr>
+        <tr>
+          <td>LZW</td>
+          <td>Image files containing a lot of repetitive data, which is common with monochrome images</td>
+          <td>Lossless compression, Preserves all original image information</td>
+          <td>Moderate compression ratios</td>
+          <td>Slow when file data is large and not repetitive</td>
+        </tr>
+        <tr>
+          <td>DEFLATE</td>
+          <td>General-purpose compression, as it strikes a good balance between compression ratio, encode speed and decode speed on most data types</td>
+          <td>Lossless compression, Preserves all original image information</td>
+          <td>Moderate compression ratios</td>
+          <td>Generally fast and efficient</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="conclusion">
+    <h2>Considerations for using which Image Compression Algorithm</h2>
+    <p><strong>Image Quality Requirements:</strong> If preserving image quality without introducing compression artifacts is essential, lossless compression algorithms like LZW or Deflate (combined LZ77 and Huffman coding) are more suitable. This is important in applications such as medical imaging (e.g., X-ray), where accurate representation of visual data is critical.</p>
+    <p><strong>Compression Efficiency:</strong> If achieving high compression ratios while accepting some loss of image quality is acceptable, a lossy compression algorithm like DCT (used in JPEG) is more suitable. This is common when there are limited storage space or bandwidth constraints, where reducing file size is crucial for storage or transmission.</p>
+    <p><strong>Compatibility:</strong> Consider the compatibility of the compression algorithm with existing systems, software, and standards. For example, if we need to integrate with platforms that support specific image formats (e.g., JPEG, PNG, GIF), we should use compression algorithms commonly associated with those formats.</p>
+    <p><strong>Resource Constraints:</strong> If we are working with devices or environments with limited storage space or bandwidth, we should optimize for efficient compression algorithms that strike a balance between compression ratio and computational resources.</p>
+  </div>
+</body>
+<footer>
+  MENBERS LIST<br>
+  <li>Yau Sheung Ching (58539352)</li>
+  <li>Zhang Xi Tong (57845879)</li>
+  <li>Chan Yuk Kwan (56212704)</li>
+  <li>Li Wang Cheong (57149051)</li>
+</footer>
+</html>
